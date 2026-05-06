@@ -25,9 +25,11 @@
 
                 <div class="mt-8">
                     <p class="mt-4 text-sm text-gray-600">Содержимое файла <span class="font-mono bg-gray-200 px-1">public/thirdTask.js</span>:</p>
-                    <div class="bg-gray-100 border border-gray-300 p-4 rounded-lg mt-2 text-xs font-mono whitespace-pre overflow-x-auto">
-                        {{ file_get_contents(public_path('thirdTask.js')) }}
-                    </div>
+                    <div class="bg-gray-100 border border-gray-300 p-4 rounded-lg mt-2 text-xs font-mono whitespace-pre overflow-x-auto">@php
+                            $content = file_get_contents(public_path('thirdTask.js'));
+                            $realUrl = "'" . config('app.url') . "/api/v1/track" . "'";
+                            echo e(str_replace('window.TrackerConfig.apiUrl', $realUrl, $content));
+                        @endphp</div>
                 </div>
             </div>
         </div>

@@ -11,7 +11,7 @@ class TrackController extends Controller
     public function store(Request $request)
     {
         $ip = $request->ip();
-        $geo = Http::get("https://ip-api.co/{$ip}/json")->json();
+        $geo = Http::get("https://ipapi.co/{$ip}/json")->json();
         $hour = now()->startOfHour();
 
         Visit::updateOrCreate(

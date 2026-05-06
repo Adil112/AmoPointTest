@@ -34,7 +34,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="http://127.0.0.1:8000/thirdTask.js"></script>
+    <script src="{{ asset('thirdTask.js') }}"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const timeLabels = {!! json_encode($visitsPerHour->pluck('hour')->map(fn($h) => \Carbon\Carbon::parse($h)->format('H:00'))) !!};
